@@ -13,9 +13,9 @@ function UserProfile() {
     async function fetchData() {
       try {
         const [userRes, postRes, commentRes] = await Promise.all([
-          axios.get(`http://localhost:8000/users/${id}`),
-          axios.get(`http://localhost:8000/posts/by-user/${id}`),
-          axios.get(`http://localhost:8000/comments/by-user/${id}`),
+          axios.get(`https://miniforum.onrender.com/users/${id}`),
+          axios.get(`https://miniforum.onrender.com/posts/by-user/${id}`),
+          axios.get(`https://miniforum.onrender.com/comments/by-user/${id}`),
         ]);
         setUser(userRes.data);
         setPosts(postRes.data);

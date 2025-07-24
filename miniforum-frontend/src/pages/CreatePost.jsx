@@ -21,7 +21,7 @@ function CreatePost() {
 
     try {
       await axios.post(
-        "http://localhost:8000/posts/create",
+        "https://miniforum.onrender.com/posts/create",
         { title, content },
         {
           headers: {

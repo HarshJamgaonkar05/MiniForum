@@ -19,14 +19,14 @@ function Profile() {
     }
 
     try {
-      const userRes = await axios.get("http://localhost:8000/profile", {
+      const userRes = await axios.get("https://miniforum.onrender.com/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(userRes.data);
 
       const [commentRes, postRes] = await Promise.all([
-        axios.get(`http://localhost:8000/comments/by-user/${userRes.data.id}`),
-        axios.get(`http://localhost:8000/posts/by-user/${userRes.data.id}`),
+        axios.get(`https://miniforum.onrender.com/comments/by-user/${userRes.data.id}`),
+        axios.get(`https://miniforum.onrender.com/posts/by-user/${userRes.data.id}`),
       ]);
 
       setComments(commentRes.data);
@@ -54,7 +54,7 @@ function Profile() {
   const handleUpdate = async (commentId) => {
     try {
       await axios.put(
-        `http://localhost:8000/comments/${commentId}`,
+        `https://miniforum.onrender.com/comments/${commentId}`,
         {
           content: editedContent,
           post_id: comments.find((c) => c.id === commentId).post_id,
@@ -76,7 +76,7 @@ function Profile() {
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/comments/${commentId}`, {
+      await axios.delete(`https://miniforum.onrender.com/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchData();

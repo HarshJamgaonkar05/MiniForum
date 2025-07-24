@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const res = await axios.get("http://localhost:8000/posts/");
+        const res = await axios.get("https://miniforum.onrender.com/posts/");
         setPosts(res.data);
       } catch (err) {
         console.error("Error fetching posts:", err);

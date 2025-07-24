@@ -19,8 +19,8 @@ function PostDetail() {
     async function fetchAll() {
       try {
         const [postRes, commentRes] = await Promise.all([
-          axios.get(`http://localhost:8000/posts/${id}`),
-          axios.get(`http://localhost:8000/comments/post/${id}`),
+          axios.get(`https://miniforum.onrender.com/posts/${id}`),
+          axios.get(`https://miniforum.onrender.com/comments/post/${id}`),
         ]);
         setPost(postRes.data);
         setComments(commentRes.data);
@@ -32,7 +32,7 @@ function PostDetail() {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const userRes = await axios.get("http://localhost:8000/profile", {
+          const userRes = await axios.get("https://miniforum.onrender.com/profile", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -57,7 +57,7 @@ function PostDetail() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/comments/create",
+        "https://miniforum.onrender.com/comments/create",
         { content: newComment, post_id: parseInt(id) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -80,7 +80,7 @@ function PostDetail() {
 
     try {
       const res = await axios.put(
-        `http://localhost:8000/comments/${commentId}`,
+        `https://miniforum.onrender.com/comments/${commentId}`,
         { content: editedComment, post_id: id },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -98,7 +98,7 @@ function PostDetail() {
     if (!window.confirm("Delete this comment?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/comments/${commentId}`, {
+      await axios.delete(`https://miniforum.onrender.com/comments/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComments(comments.filter((c) => c.id !== commentId));
@@ -114,7 +114,7 @@ function PostDetail() {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/posts/${id}`, {
+      await axios.delete(`https://miniforum.onrender.com/posts/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

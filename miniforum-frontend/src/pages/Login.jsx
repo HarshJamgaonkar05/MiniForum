@@ -21,7 +21,7 @@ function Login() {
     data.append("password", formData.password);
 
     try {
-      const res = await axios.post("http://localhost:8000/login", data, {
+      const res = await axios.post("https://miniforum.onrender.com/login", data, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },

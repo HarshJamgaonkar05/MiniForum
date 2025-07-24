@@ -17,7 +17,7 @@ function Signup() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:8000/signup", formData);
+      const res = await axios.post("https://miniforum.onrender.com/signup", formData);
       console.log("Signup success:", res.data);
       navigate("/login");
     } catch (err) {
