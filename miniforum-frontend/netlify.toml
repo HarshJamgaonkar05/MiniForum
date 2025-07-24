@@ -1,4 +1,0 @@
-[build]
-  base = "miniforum-frontend"
-  publish = "dist"
-  command = "npm run build"
