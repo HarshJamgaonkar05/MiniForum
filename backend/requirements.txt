@@ -6,3 +6,4 @@ aiosqlite
 python-jose
 passlib[bcrypt]
 python-dotenv
+asyncpg
