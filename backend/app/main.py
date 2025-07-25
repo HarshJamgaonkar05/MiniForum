@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # allow your frontend origin
+    allow_origins=["https://miniforum.netlify.app"],  # allow your frontend origin
     allow_credentials=True,
     allow_methods=["*"],  # allow all methods (POST, GET, etc.)
     allow_headers=["*"],  # allow all headers (e.g. Content-Type, Authorization)
